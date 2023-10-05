@@ -1,0 +1,27 @@
+SetEnv URI_ID REDIRECT_URL
+
+SetEnv DB_HOST ""
+SetEnv DB_USER ""
+SetEnv DB_PWD ""
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  Options -Indexes
+  Options +FollowSymlinks
+  RewriteBase /
+
+  php_value post_max_size 8M
+  php_value upload_max_filesize 8M
+  php_value max_execution_time 90
+
+  # Redirect API requests to index.php
+  RewriteRule   ^api/v1/(.*?)$ index.php [QSA,L]
+
+  # Stop processing if the request is for index.html
+  RewriteRule ^index\.html$ - [L]
+
+  # For all other requests, route to index.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>

@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.h-100vh {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
+}
+
+.table-row {
+  content-visibility: auto;
+  height: 41px;
+}
