@@ -9,13 +9,13 @@ $ git clone git@github.com:pikil/csv-reader-example.git
 $ docker build -t csv-data-reader . && docker run -p 8089:80 csv-data-reader
 ```
 
-## Stopping the container (when there are multiple containers are running)
+## Stopping the container (when there are multiple containers running)
 ```bash
 $ docker ps
 $ docker stop <_container_id_>
 ```
 
-## Stopping the container (when there is only one container is running)
+## Stopping the container (when there is only one container running)
 ```bash
 $ docker stop $(docker ps -q)
 ```
